@@ -15,6 +15,12 @@ function bindData(articles){
 
     cardContener.innerHTML = '';
 
+    if (!articles || articles.length === 0) {
+        // Handle the case when no articles are available
+        cardContener.innerHTML = '<p>No articles found.</p>';
+        return;
+    }
+    
     articles.forEach(article => {
         if(!article.urlToImage) return;
         const cardClone = tempelet.content.cloneNode(true);
